@@ -22,13 +22,12 @@ public class Principal {
         String menu = """
                 ******************************************************
                  Bienvenido a su casa convertido de monedas  Digital: "La Peseta"
-                 Actualmente trabajamos con las siguientes monedas:
-                 1-DOP
-                 2-USD
-                 3-EUR
-                 4-MXN
-                 5-EUR
-                 6-GBP
+                 Trabajamos con todas las monedas globales. Para su uso utilice las abreviaturas establecidas. Ejemplo:
+                 1-DOP - Pesos Dominicano
+                 2-USD - Dolar Estadounidense
+                 3-EUR - Euro
+                 4-MXN - Pesos Mexicano
+                 6-GBP - Libras Esterlina 
                  Escriba "salir"  para concluir la consulta del sistema
                  ***************************************************
                 """;
