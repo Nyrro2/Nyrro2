@@ -1,0 +1,55 @@
+<header id="main-header" class="py-2 text-bg-white">
+    <div class="container">
+        <h1 class="text-center"><i class="bi bi-bag-plus"></i> Agregar Producto</h1>
+    </div>
+
+</header>
+<section id="detalles" class="d-flex align-content-center">
+    <div class="d-flex py-4">
+        <!-- <div class="card">
+            <div class="card-header mb-4">
+                <h4 class="text-center fs-bold"> Agregar Producto</h4>
+            </div>
+        </div> -->
+        <div class="d-flex align-content-center mt-2 ">
+            
+            <form #productoForm ='ngForm' (ngSubmit)="guardarProducto(productoForm)" class="row justify-content-center text-center">
+
+                <div class="d-flex align-items-center">
+                   
+                    <!-- Campo nombre -->
+                    <div class="d-flex align-items-center mb-3 my-3">
+                        <label for="codigo" class="form-label me-3">Codigo:</label>
+                        <input type="number" class="me-3" id="codigo" name="codigo" placeholder="Codigo" required [(ngModel)]="producto.codigo" autocomplete="off">
+                    </div>
+                    <!-- Campo descripcion -->
+                    <div class="d-flex align-items-center mb-3 my-3">
+                        <label for="descripcion" class="form-label me-3">Descripcion:</label>
+                        <input type="text" class=" me-3" id="descripcion" name="descripcion" placeholder="Descripcion" required [(ngModel)]="producto.descripcion" autocomplete="off">
+                    
+                    </div>
+                    <!-- Campo Precio -->
+                    <div class="d-flex align-items-center mb-3 my-3">
+                        <label for="precio" class="form-label me-3">Precio:</label>
+                        <input type ="number" class="me-3" id="precio" name='precio' placeholder="Precio" required [(ngModel)]="producto.precio">
+                    </div>
+                    <!-- Campo de unidad -->
+                    <div class="d-flex align-items-center mb-3 my-3">
+                        <label for="undMed" class="form-label me-3" id="undMed">Unidad de Medida:</label>
+                        <select name="undMed" id="undMed" [(ngModel)]="producto.undMed">
+                            <option value="UND">UND</option>
+                            <option value="LBS">LBS</option>
+                        </select>
+                    </div>
+                </div>
+                <span class="col-auto mt-2 my-2">
+                    <button type="submit" class="btn btn-primary" (click)="agregarProducto()"><i class="bi bi-check-circle-fill"></i> Agregar </button>
+                </span>
+
+                
+            </form>
+        </div>
+    </div>
+
+</section>
+

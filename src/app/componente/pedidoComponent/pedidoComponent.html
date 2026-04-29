@@ -1,0 +1,74 @@
+
+
+<ul class="list-group mt-3">
+    @for(producto of productos; track productos){
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span class="flex-grow-1">{{producto.codigo}}</span>
+            <button class="btn btn-sm btn-danger" (click)="eliminarPedido(producto)"></button>
+            <span class="flex-grow-1">{{producto.descripcion}}</span>
+            <span class="flex-grow-1">{{producto.undMed}}</span>
+            <span class="flex-grow-1">{{producto.precio | currency:'$ '}}</span>
+            <span class="flex-grow-1"><input class="w-25"  type="number" id="cantidad"></span>
+        </li>
+    }
+</ul>
+
+
+
+<!-- <section id="pedido">
+    <div class="container">
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header my-3">
+                        <h2 class="text-center mt-3">Listado de articulos</h2>
+                    </div>
+                    
+                    <table class="table  table-striped">
+                        <thead class="table-dark mt-2">
+                            <tr class="fw-bolder text-center my-1 table-striped-columns">
+                                <th>Codigo</th>
+                                <th>Descripcion</th>
+                                <th>Und.Medida</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>SubTotal</th>
+                            </tr>
+                        </thead>
+                         <tbody class="text-center mx-2 mt-2 table-hover ">
+                            <td><input class="text-center mt-2" type="number"[formControl]="codigoBuscado" #codigo id="codigo" name="codigo" autocomplete="off" required></td>
+                            <td class="mx-2 my-2">{{producto.descripcion}}</td>
+                            <td class="mx-2 my-2">{{producto.undMed}}</td>
+                            <td>{{producto.precio | currency:'$ '}}</td>
+                            <td><input type="number" class="form-control border-success mx-2 mt-2" id="cantidad" [(ngModel)]="cantidad" name="cantidad" required autocomplete="off">
+                            </td>
+                            <td class="mx-2 my-2">{{subTotal()|currency:'$ '}}</td>
+                        </tbody>
+                        
+                    </table> -->
+                <!-- </div>
+            </div> -->
+            <!-- TARJETAS -->
+            <!--Primera Tarjeta  -->
+          <!-- <div class="col-md-3">
+                <div class="card text-center bg-danger text-white mb-3">
+                    <div class="card-body">
+                        <h3 class="text-center">Saldo Total</h3>
+                        <h4 class="display-">
+                            $2000 
+                        </h4>
+                    </div>
+                </div> 
+                Segunda tarjeta
+                <div class="card text-center bg-success text-white mb-3">
+                    <div class="card-body">
+                        <h3>Total Articulos</h3>
+                        <h4 class="display-4"> 
+                            <i class="bi bi-basket"></i> 5
+                        </h4>
+                    </div>      
+                </div>
+            </div>-->
+    <!-- </div>
+    </div>
+</section> -->

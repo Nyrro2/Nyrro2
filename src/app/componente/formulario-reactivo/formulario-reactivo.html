@@ -1,0 +1,158 @@
+<!-- <label for="formularioReactivo">Formulario</label>
+<input id="formularioReactivo" type="text" [formControl]="formularioReactivo"/> -->
+
+
+<div class="search-container mt-3 mb-3 mx-5">
+    <div class="container mt-3 mx-5  mb-3 d-flex align-content-center">
+        <input class='mt-3 mx-5'type="text" [formControl]="clienteBuscado" placeholder= "Buscar Cliente" class= " text-center search-input">
+    </div>
+
+</div>
+
+    <section class="row justify-content-center mx-3" id="pedido">
+    <div class="container">
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-center">
+                        <h2 class="text-center mt-2">Listado de articulos</h2>
+                    </div>
+                    
+                    <!-- <div formArrayName="lineas"> -->
+                        <!-- CABECERO DE LA TABLA. HEADER -->
+                        <table class="table  table-striped">
+                            <thead class="table-dark mt-2">
+                                <tr class="fw-bolder text-center my-1 table-striped-columns">
+                                    <th>Codigo</th>
+                                    <th>Descripcion</th>
+                                    <th>Und.Medida</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>SubTotal</th>
+                                </tr>
+                            </thead>
+
+                                <tbody>
+                                    
+                                    <!-- <tr *ngFor="let item of listaProductos">
+                                    <td>{{producto.codigo}}</td>
+                                    <td>{{ producto.descripcion }}</td>
+                                    <td>{{ producto.undMed }}</td>
+
+                                    <td>{{ producto.precio }}</td>
+
+                                    </tr> -->
+
+                                    <tr>
+                                    
+                                    <td>
+                                        <input class="text-center mx-2 my-2" type="number" [formControl]="codigoBuscado" #codigo id="codigo" name="codigo" autocomplete="off"> 
+                                        @if(codigoBuscado.invalid && codigoBuscado.touched){
+                                            <div class="text-danger" placeholder="Codigo" (input)="verificarYAgregar()">
+                                                Codigo es requerido 
+                                            </div>}
+                                        <!-- <input type='number'[(ngModel)]="nuevaFila.codigo" (input)="verificarYAgregar()" placeholder="codigo..."> -->
+                                    </td>
+                                    <td>
+                                     {{producto.descripcion}}
+                                    </td>
+                                     <td>
+                                     {{producto.precio}}
+                                    </td>
+                                     <td>
+                                     {{producto.undMed}}
+                                    </td>
+                                    <td>
+                                        <input [(ngModel)]="this.cantidad" (input)="verificarYAgregar()" placeholder="cantidad">
+                                    </td>
+                                    <td>
+                                        {{subTotal()}}
+                                    </td>
+                        
+                                    <!-- <td>
+                                        <input type="number" [(ngModel)]="nuevaFila.precio" (input)="verificarYAgregar()">
+                                    </td> -->
+                                    </tr>
+
+                                    <!-- <form #pedidoForm="ngForm" (ngSubmit)="agregarValor(pedidoForm)"> -->
+                                        <!-- <td class="mx-2">
+                                        <input class="text-center mx-2 my-2" type="number"[formControl]="codigoBuscado" #codigo id="codigo" name="codigo" autocomplete="off" required> @if(codigoBuscado.invalid && codigoBuscado.touched){
+                                            <div class="text-danger">
+                                                Codigo es requerido 
+                                            </div>
+                                        }</td>
+                                        <td class="mx-4 my-2">{{producto?.descripcion}}</td>
+                                        <td class="mx-4 my-2">{{producto?.undMed}}</td>
+                                        <td class="mx-4 my-2">{{producto?.precio | currency:'$ '}}</td>
+                                        <td><input (keydown.enter)="guardar()" type="number" class="form-contro d-flex justify-content-between mx-2 mt-2" id="cantidad" [(ngModel)]="cantidad" name="cantidad" required autocomplete="off">
+                                        </td>
+                                        <td class="mx-2 my-2">{{subTotal()|currency:'$ '}}</td> -->
+                   
+                                    <!-- </form>
+                           
+                                    @for (producto of productos; track producto) {
+                                        <tr>
+                                            <td><input class="text-center mt-2" type="number"[formControl]="codigoBuscado" #codigo id="codigo" name="codigo" autocomplete="off" required> @if(codigoBuscado.invalid && codigoBuscado.touched){
+                                                <div class="text-danger">
+                                                    Codigo es requerido 
+                                                </div>
+                                            }</td>
+                                            <td class="mx-4 my-2">{{producto.descripcion}}</td>
+                                            <td class="mx-4 my-2">{{producto.undMed}}</td>
+                                            <td class="mx-4 my-2">{{producto.precio | currency:'$ '}}</td>
+                                            <td><input type="number" class="form-contro d-flex justify-content-between mx-2 mt-2" id="cantidad" [(ngModel)]="cantidad" name="cantidad" required autocomplete="off">
+                                            </td>
+                                            <td class="mx-2 my-2">{{subTotal()|currency:'$ '}}</td>                                        
+                                        </tr>
+                                    }
+                                    
+
+
+
+                                    
+                                     <div formArrayName = "lineas" class="d-flex justify-content-center my-2">
+                                        <div *ngFor="let linea of lineas.controls; let i=index;" [formGroupName]="i">
+                                            <td><input class="text-center mt-2" type="number"[formControl]="codigoBuscado" #codigo id="codigo" name="codigo" autocomplete="off" required> @if(codigoBuscado.invalid && codigoBuscado.touched){
+                                                <div class="text-danger">
+                                                    Codigo es requerido 
+                                                </div>
+                                            }</td>
+                                            <td class="mx-4 my-2">{{producto.descripcion}}</td>
+                                            <td class="mx-4 my-2">{{producto.undMed}}</td>
+                                            <td class="mx-4 my-2">{{producto.precio | currency:'$ '}}</td>
+                                            <td><input type="number" class="form-contro d-flex justify-content-between mx-2 mt-2" id="cantidad" [(ngModel)]="cantidad" name="cantidad" required autocomplete="off">
+                                            </td>
+                                            <td class="mx-2 my-2">{{subTotal()|currency:'$ '}}</td>
+                                            
+                                        </div>
+                                    </div> -->
+                                </tbody>
+                            </table>             
+                            <!-- </form> -->
+                        </div>
+                    </div>
+
+
+        <div class="col-md-3">
+                    <div class="card text-center bg-danger text-white mb-3">
+                        <div class="card-body">
+                            <h3 class="text-center">Saldo Total</h3>
+                            <h4>
+                                <div class="display-">
+                                    {{getProductoTotal() | currency:'$ '}} 
+                                </div>
+                            </h4>
+                        </div>
+                    </div> 
+                    <!-- Segunda tarjeta -->
+                    <div class="card text-center bg-success text-white mb-3">
+                        <div class="card-body">
+                            <h3>Total Articulos</h3>
+                            <h4 class="display-4"> 
+                                <i class="bi bi-basket">{{productos?.length}}</i> 
+                            </h4>
+                        </div>      
+                    </div>
+                </div>
+
+    <section>
